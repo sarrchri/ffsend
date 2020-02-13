@@ -111,6 +111,7 @@ clipboard-crate = ["clipboard"]
 chbs = "0.0.10"
 chrono = "0.4"
 clap = "2.33"
+clipboard-ext = { version = "0.1", default-features = false, features = ["x11-bin"], optional = true }
 colored = "1.9"
 derive_builder = "0.9"
 directories = "2.0"
