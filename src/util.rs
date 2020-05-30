@@ -1,6 +1,6 @@
 extern crate colored;
 #[cfg(feature = "clipboard-crate")]
-extern crate copypasta;
+extern crate copypasta_ext;
 extern crate directories;
 extern crate fs2;
 extern crate open;
@@ -26,7 +26,7 @@ use std::process::{Command, Stdio};
 
 use self::colored::*;
 #[cfg(feature = "clipboard-crate")]
-use self::copypasta::{ClipboardContext, ClipboardProvider};
+use self::copypasta_ext::copypasta::{ClipboardContext, ClipboardProvider};
 #[cfg(feature = "history")]
 use self::directories::ProjectDirs;
 use self::fs2::available_space;

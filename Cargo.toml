@@ -72,7 +72,7 @@ default = [
 archive = ["tar"]
 
 # Support for putting share URLs in clipboard
-clipboard = ["copypasta", "which"]
+clipboard = ["copypasta-ext", "which"]
 
 # Compile with file history support
 history = []
@@ -114,7 +114,7 @@ chbs = "0.0.10"
 chrono = "0.4"
 clap = "2.33"
 colored = "1.9"
-copypasta = { version = "0.7", optional = true }
+copypasta-ext = { version = "0.3", optional = true }
 derive_builder = "0.9"
 directories = "2.0"
 failure = "0.1"
