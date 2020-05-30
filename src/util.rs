@@ -1,6 +1,6 @@
-#[cfg(feature = "clipboard-crate")]
-extern crate clip;
 extern crate colored;
+#[cfg(feature = "clipboard-crate")]
+extern crate copypasta;
 extern crate directories;
 extern crate fs2;
 extern crate open;
@@ -24,9 +24,9 @@ use std::process::{exit, ExitStatus};
 #[cfg(feature = "clipboard-bin")]
 use std::process::{Command, Stdio};
 
-#[cfg(feature = "clipboard-crate")]
-use self::clip::{ClipboardContext, ClipboardProvider};
 use self::colored::*;
+#[cfg(feature = "clipboard-crate")]
+use self::copypasta::{ClipboardContext, ClipboardProvider};
 #[cfg(feature = "history")]
 use self::directories::ProjectDirs;
 use self::fs2::available_space;
@@ -387,7 +387,7 @@ impl ClipboardType {
     /// This is used on non-Linux systems.
     #[cfg(feature = "clipboard-crate")]
     fn native_set(content: String) -> Result<(), ClipboardError> {
-        ClipboardProvider::new()
+        ClipboardContext::new()
             .and_then(|mut context: ClipboardContext| context.set_contents(content))
             .map_err(|err| format_err!("{}", err).compat())
             .map_err(ClipboardError::Native)
