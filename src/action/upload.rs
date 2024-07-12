@@ -571,7 +571,6 @@ fn shared_dir(paths: Vec<PathBuf>) -> Option<PathBuf> {
 
             // Build list of path buffers for each path component
             let mut items = vec![p];
-            #[allow(mutable_borrow_reservation_conflict)]
             while let Some(item) = items.last().unwrap().parent() {
                 items.push(item.to_path_buf());
             }
